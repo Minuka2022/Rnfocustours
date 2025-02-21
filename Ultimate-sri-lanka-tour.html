@@ -42,7 +42,7 @@
     <header class="main_header_arae" >
   
         <!-- Top Bar -->
-          <div class="topbar-area">
+         <div class="topbar-area">
              <div class="container">
                  <div class="row align-items-center">
                      <div class="col-lg-6 col-md-6">
@@ -63,13 +63,13 @@
          </div>
      
          <!-- Navbar Bar -->
-         <div class="navbar-area">
+        <div class="navbar-area">
              <div class="main-responsive-nav">
                  <div class="container">
                      <div class="main-responsive-menu">
                          <div class="logo">
                              <a href="index.html">
-                                 <img src="https://rnfocustours.com/images/logo.png" alt="logo">
+                                 <img src="assets/img/rnfocuslogo.png" alt="logo">
                              </a>
                          </div>
                      </div>
@@ -79,7 +79,7 @@
                  <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                          <a class="navbar-brand" href="index.html">
-                             <img src="https://rnfocustours.com/images/logo.png" alt="logo">
+                             <img src="assets/img/rnfocuslogo.png" alt="logo">
                          </a>
                          <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                              <ul class="navbar-nav">
@@ -97,13 +97,7 @@
                                      </a>
                                      
                                  </li>
-                                 <li class="nav-item">
-                                     <a href="hotel-search-list.html" class="nav-link">
-                                         Hotels Sri lanka
-                                        
-                                     </a>
-                                    
-                                 </li>
+                              
                                  <li class="nav-item">
                                     <a href="Plan-your-trip.html" class="nav-link">
                                         Plan Your Trip
@@ -592,7 +586,8 @@
                                 <div class="tour_details_right_box_heading" style="margin-bottom:20px;">
                                     <h3>Book Your Tour</h3>
                                 </div>
-                                <form action="#" method="POST">
+                                <form id="tourPackageForm" action="TourPackageBooking.php" method="POST">
+                                    <input type="hidden" name="package_name" value="Ultimate Sri Lanka Tour">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
@@ -629,6 +624,76 @@
                                 </form>
                             </div>
                         </div>
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            $(document).ready(function() {
+                                $('#tourPackageForm').on('submit', function(event) {
+                                    event.preventDefault(); // Stop the form from submitting normally
+                        
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: 'TourPackageBooking.php',
+                                        data: $(this).serialize(),
+                                        success: function(response) {
+                                            if ($.trim(response) === "success") {
+                                                Swal.fire({
+                                                    title: 'Booking Successful!',
+                                                    text: 'Thank you! Your booking request has been sent.',
+                                                    icon: 'success',
+                                                    confirmButtonText: 'OK'
+                                                }).then(() => {
+                                                    $('#tourPackageForm')[0].reset(); // Clear form fields
+                                                });
+                                            } else {
+                                                Swal.fire({
+                                                    title: 'Oops!',
+                                                    text: 'Something went wrong. Please try again.',
+                                                    icon: 'error',
+                                                    confirmButtonText: 'OK'
+                                                });
+                                            }
+                                        },
+                                        error: function() {
+                                            Swal.fire({
+                                                title: 'Error!',
+                                                text: 'Error in sending the request. Please try again later.',
+                                                icon: 'error',
+                                                confirmButtonText: 'OK'
+                                            });
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    // Get today's date
+                                    const today = new Date().toISOString().split('T')[0];
+                            
+                                    // Set the min attribute and default value for check-in date
+                                    const checkin = document.getElementById('checkin');
+                                    checkin.setAttribute('min', today);
+                                    checkin.value = today;
+                            
+                                    // Set the min attribute and default value for check-out date
+                                    const checkout = document.getElementById('checkout');
+                                    checkout.setAttribute('min', today);
+                                    checkout.value = today;
+                            
+                                    // Automatically adjust the checkout date when check-in date changes
+                                    checkin.addEventListener('change', function() {
+                                        const checkinDate = this.value;
+                                        checkout.setAttribute('min', checkinDate);
+                                        if (checkout.value < checkinDate) {
+                                            checkout.value = checkinDate;
+                                        }
+                                    });
+                                });
+                            </script>
+                        
+
+                        
                         
                        
                         <div class="tour_detail_right_sidebar">

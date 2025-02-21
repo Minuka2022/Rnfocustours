@@ -36,10 +36,10 @@
 <body>
  
 
-    <header class="main_header_arae" >
+   <header class="main_header_arae" >
   
         <!-- Top Bar -->
-          <div class="topbar-area">
+         <div class="topbar-area">
              <div class="container">
                  <div class="row align-items-center">
                      <div class="col-lg-6 col-md-6">
@@ -60,13 +60,13 @@
          </div>
      
          <!-- Navbar Bar -->
-         <div class="navbar-area">
+        <div class="navbar-area">
              <div class="main-responsive-nav">
                  <div class="container">
                      <div class="main-responsive-menu">
                          <div class="logo">
                              <a href="index.html">
-                                 <img src="https://rnfocustours.com/images/logo.png" alt="logo">
+                                 <img src="assets/img/rnfocuslogo.png" alt="logo">
                              </a>
                          </div>
                      </div>
@@ -76,7 +76,7 @@
                  <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                          <a class="navbar-brand" href="index.html">
-                             <img src="https://rnfocustours.com/images/logo.png" alt="logo">
+                             <img src="assets/img/rnfocuslogo.png" alt="logo">
                          </a>
                          <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                              <ul class="navbar-nav">
@@ -94,15 +94,9 @@
                                      </a>
                                      
                                  </li>
+                              
                                  <li class="nav-item">
-                                     <a href="hotel-search-list.html" class="nav-link">
-                                         Hotels Sri lanka
-                                        
-                                     </a>
-                                    
-                                 </li>
-                                 <li class="nav-item">
-                                    <a href="tour-booking-submission.html" class="nav-link">
+                                    <a href="Plan-your-trip.html" class="nav-link">
                                         Plan Your Trip
                                        
                                     </a>
@@ -167,12 +161,14 @@
                         <div class="booking_tour_form">
                             <h3 class="heading_theme">Booking submission</h3>
                             <div class="tour_booking_form_box">
-                                <form action="https://andit.co/projects/html/and-tour/demo/!#" id="tour_bookking_form_item">
+                                <form action="plan_your_trip.php" method="post" id="tour_bookking_form_item">
+
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="travel_plan">Select the travel plan</label>
-                                                <select class="form-control form-select bg_input" id="travel_plan">
+                                                <select class="form-control form-select bg_input" id="travel_plan" name="travel_plan">
+
                                                     <option value="solo">Solo</option>
                                                     <option value="couple">Couple</option>
                                                     <option value="family_with_kids">Family with kids</option>
@@ -184,7 +180,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="travel_planning">How far along are you with your travel planning?</label>
-                                                <select class="form-control form-select bg_input" id="travel_planning">
+                                                <select class="form-control form-select bg_input" id="travel_planning" name="travel_planning">
                                                     <option value="exploring_ideas">Just exploring ideas</option>
                                                     <option value="rough_plan">Have a rough plan</option>
                                                     <option value="need_recommendations">Need recommendations for specific plans and activities</option>
@@ -198,47 +194,47 @@
                                                 <label>Type of holiday I am looking for:</label>
                                                 <div class="holiday_type_grid" style="margin-top:25px;">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="nature_wildlife_safari" value="nature_wildlife_safari">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="nature_wildlife_safari" value="nature_wildlife_safari">
                                                         <label class="form-check-label" for="nature_wildlife_safari">Nature, Wildlife & Safari</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="cultural_heritage" value="cultural_heritage">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="cultural_heritage" value="cultural_heritage">
                                                         <label class="form-check-label" for="cultural_heritage">Cultural & Heritage</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="beach_relaxing" value="beach_relaxing">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="beach_relaxing" value="beach_relaxing">
                                                         <label class="form-check-label" for="beach_relaxing">Beach Relaxing</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="trekking_climbing" value="trekking_climbing">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="trekking_climbing" value="trekking_climbing">
                                                         <label class="form-check-label" for="trekking_climbing">Trekking & Climbing</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="activity_games" value="activity_games">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="activity_games" value="activity_games">
                                                         <label class="form-check-label" for="activity_games">Activity and Games</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="boat_trips_island_visits" value="boat_trips_island_visits">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="boat_trips_island_visits" value="boat_trips_island_visits">
                                                         <label class="form-check-label" for="boat_trips_island_visits">Boat Trips & Island Visits</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="train_rides" value="train_rides">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="train_rides" value="train_rides">
                                                         <label class="form-check-label" for="train_rides">Train Rides</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="factory_visits" value="factory_visits">
+                                                        <input class="form-check-input" type="checkbox" nname="holiday_type[]" id="factory_visits" value="factory_visits">
                                                         <label class="form-check-label" for="factory_visits">Factory Visits</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="water_sports" value="water_sports">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="water_sports" value="water_sports">
                                                         <label class="form-check-label" for="water_sports">Water Sports</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="snorkeling_diving" value="snorkeling_diving">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="snorkeling_diving" value="snorkeling_diving">
                                                         <label class="form-check-label" for="snorkeling_diving">Snorkeling & Diving</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="holiday_type" id="whales_dolphins_watching" value="whales_dolphins_watching">
+                                                        <input class="form-check-input" type="checkbox" name="holiday_type[]" id="whales_dolphins_watching" value="whales_dolphins_watching">
                                                         <label class="form-check-label" for="whales_dolphins_watching">Whales and Dolphins Watching</label>
                                                     </div>
                                                 </div>
@@ -247,7 +243,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="accommodation_type">My Preferred Accommodation Type</label>
-                                                <select class="form-control form-select bg_input" id="accommodation_type">
+                                                <select class="form-control form-select bg_input" id="accommodation_type" name="accommodation_type">
                                                     <option value="budget">Budget</option>
                                                     <option value="standard">Standard</option>
                                                     <option value="premium">Premium</option>
@@ -258,7 +254,7 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="meals_information">Meals information you required</label>
-                                                <select class="form-control form-select bg_input" id="meals_information">
+                                                <select class="form-control form-select bg_input" id="meals_information" name="meals_information">
                                                     <option value="without_meals">Without Meals</option>
                                                     <option value="half_board">Half-board</option>
                                                     <option value="full_board">Full-board</option>
@@ -268,71 +264,133 @@
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label for="additional_requirements">My Additional Requirement Information</label>
-                                                <textarea class="form-control bg_input" id="additional_requirements" rows="3"></textarea>
+                                                <textarea class="form-control bg_input" id="additional_requirements" rows="3" name="additional_requirements"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="number_of_adults">Number of Adults:</label>
-                                                <input type="number" class="form-control bg_input" id="number_of_adults">
+                                                <input type="number" class="form-control bg_input" id="number_of_adults" name="number_of_adults" min="0" value="0">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="number_of_children">Number of Children:</label>
-                                                <input type="number" class="form-control bg_input" id="number_of_children">
+                                                <input type="number" class="form-control bg_input" id="number_of_children" name="number_of_children" min="0" value="0">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="start_date">Start Date:</label>
-                                                <input type="date" class="form-control bg_input" id="start_date">
+                                                <input type="date" class="form-control bg_input" id="start_date" name="start_date" min="<?= date('Y-m-d'); ?>">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="end_date">End Date:</label>
-                                                <input type="date" class="form-control bg_input" id="end_date">
+                                                <input type="date" class="form-control bg_input" id="end_date" name="end_date">
                                             </div>
                                         </div>
+                                        
+                                        <script>
+                                            // Set the minimum start date to today
+                                            const today = new Date().toISOString().split('T')[0];
+                                            document.getElementById('start_date').setAttribute('min', today);
+                                        
+                                            // Update the end date based on the selected start date
+                                            document.getElementById('start_date').addEventListener('change', function() {
+                                                const startDate = this.value;
+                                                document.getElementById('end_date').setAttribute('min', startDate);
+                                            });
+                                        </script>
+                                        
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="flight_number">Flight Number:</label>
-                                                <input type="text" class="form-control bg_input" id="flight_number">
+                                                <input type="text" class="form-control bg_input" id="flight_number" name="flight_number">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="name">Name:</label>
-                                                <input type="text" class="form-control bg_input" id="name">
+                                                <input type="text" class="form-control bg_input" id="name" name="name">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="email">Email:</label>
-                                                <input type="email" class="form-control bg_input" id="email">
+                                                <input type="email" class="form-control bg_input" id="email" name="email">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="booking_tour_form_submit">
+                                        <button type="submit" class="btn btn_theme btn_md">Submit</button>
+                                     
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="booking_tour_form_submit">
-                            <div class="form-check write_spical_check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefaultf1">
-                                <label class="form-check-label" for="flexCheckDefaultf1">
-                                    <span class="main_spical_check">
-                                        <span>I read and accept all <a href="terms-service.html">Terms and conditions</a></span>
-                                    </span>
-                                </label>
-                            </div>
-                            <a href="booking-confirmation.html" class="btn btn_theme btn_md">Submit</a>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- Include SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- SweetAlert Script -->
+<script>
+$(document).ready(function() {
+    $('#tour_bookking_form_item').on('submit', function(event) {
+        event.preventDefault(); // Stop normal form submission
+
+        $.ajax({
+            type: 'POST',
+            url: 'plan_your_trip.php', // Adjust if the file is in a different directory
+            data: $(this).serialize(),
+            success: function(response) {
+                // Trim the response to remove extra spaces
+                let trimmedResponse = $.trim(response);
+
+                // Check if the response is success or an error message
+                if (trimmedResponse === "success") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Your request has been submitted!',
+                        text: 'We will get back to you shortly.',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        $('#tour_bookking_form_item')[0].reset(); // Clear form fields
+                        window.location.href = 'index.html'; // Redirect to home or any other page
+                    });
+                } else {
+                    // Display the exact error message returned by the server
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'There was an issue submitting your request. Error: ' + trimmedResponse,
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                // Display detailed error message from the AJAX request
+                Swal.fire({
+                    title: 'AJAX Error!',
+                    text: 'Status: ' + status + '\nError: ' + error,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    });
+});
+
+
+</script>
 
     <style>
         .holiday_type_grid {

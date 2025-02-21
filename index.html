@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <!-- SweetAlert2 CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -58,13 +62,13 @@
          </div>
      
          <!-- Navbar Bar -->
-         <div class="navbar-area">
+        <div class="navbar-area">
              <div class="main-responsive-nav">
                  <div class="container">
                      <div class="main-responsive-menu">
                          <div class="logo">
                              <a href="index.html">
-                                 <img src="https://rnfocustours.com/images/logo.png" alt="logo">
+                                 <img src="assets/img/rnfocuslogo.png" alt="logo">
                              </a>
                          </div>
                      </div>
@@ -74,7 +78,7 @@
                  <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                          <a class="navbar-brand" href="index.html">
-                             <img src="https://rnfocustours.com/images/logo.png" alt="logo">
+                             <img src="assets/img/rnfocuslogo.png" alt="logo">
                          </a>
                          <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                              <ul class="navbar-nav">
@@ -92,13 +96,7 @@
                                      </a>
                                      
                                  </li>
-                                 <li class="nav-item">
-                                     <a href="hotel-search-list.html" class="nav-link">
-                                         Hotels Sri lanka
-                                        
-                                     </a>
-                                    
-                                 </li>
+                              
                                  <li class="nav-item">
                                     <a href="Plan-your-trip.html" class="nav-link">
                                         Plan Your Trip
@@ -164,13 +162,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="theme_search_form_area">
-                        <form action="#!">
+                        <form id="bookingForm" >
                             <div class="row">
                                 <!-- Name Field -->
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" placeholder="Your full name" required>
+                                        <input type="text" class="form-control" name="name" placeholder="Your full name" required>
                                     </div>
                                 </div>
     
@@ -178,7 +176,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" class="form-control" placeholder="your@email.com" required>
+                                        <input type="email" class="form-control" name="email" placeholder="your@email.com" required>
                                     </div>
                                 </div>
     
@@ -186,7 +184,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                     <div class="form-group">
                                         <label>Telephone Number</label>
-                                        <input type="tel" class="form-control" placeholder="+1 234 567 890" required>
+                                        <input type="tel" class="form-control" name="telephone" placeholder="+1 234 567 890" required>
                                     </div>
                                 </div>
     
@@ -194,7 +192,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12" style="margin-top:15px;">
                                     <div class="form-group">
                                         <label>How do you want to travel?</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="travel_plan">
                                             <option>Select travel plan</option>
                                             <option>Solo Travel</option>
                                             <option>Family Vacation</option>
@@ -208,7 +206,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12" style="margin-top:15px;">
                                     <div class="form-group">
                                         <label>Accommodation Type</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="accommodation_type">
                                             <option>Select accommodation type</option>
                                             <option>Hotel</option>
                                             <option>Apartment</option>
@@ -223,7 +221,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-12 col-12" style="margin-top:15px;">
                                     <div class="form-group">
                                         <label>Planning Progress</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="planning_progress">
                                             <option>Select planning stage</option>
                                             <option>Just Starting</option>
                                             <option>Researching Options</option>
@@ -246,6 +244,47 @@
             </div>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#bookingForm').on('submit', function(e) {
+                e.preventDefault(); // Prevent the default form submission
+    
+                $.ajax({
+                    url: 'QuickBook.php', // Path to your PHP file
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        if (response.trim() === 'success') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Booking Submitted!',
+                                text: 'Your request has been sent successfully.',
+                                confirmButtonColor: '#007BFF'
+                            });
+                            $('#bookingForm')[0].reset(); // Reset the form on success
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Submission Failed',
+                                text: 'Please try again later.',
+                                confirmButtonColor: '#d33'
+                            });
+                        }
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Server Error',
+                            text: 'There was a problem processing your request.',
+                            confirmButtonColor: '#d33'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 
 
 
