@@ -1,0 +1,1 @@
+import{t as e,j as s,s as u,k as c}from"./cleanForSlug.etvx808q.js";function i(t){return function(n){n=e(n);var r=s(n)?u(n):void 0,o=r?r[0]:n.charAt(0),a=r?c(r,1).join(""):n.slice(1);return o[t]()+a}}var p=i("toUpperCase");export{p as u};
